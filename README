@@ -1,0 +1,26 @@
+2048 Game in C Language
+
+INAINTE DE RULAREA APLICATIEI:
+	-redimensionati terminalul la 87(coloane), 37(randuri);
+	-utilizati un terminal cu 256 culori
+
+
+	1. culori pentru evidentiarea celulelor care au acceasi valoare
+	2. introducere nume jucator si afisare mesaj "Hello, ...nume... !"
+	3. interogare la iesirea din joc cu yes/no
+	4. afisare punctaj total acumulat in cadrul sesiunii de joc
+	5. afisare timp ramas pana la mutarea automata a celulelor
+	6. buton UNDO pentru revenirea la pasul precedent
+	7. punctaj bonus pentru imbinarea a 6 celule dintr-o singura mutare;
+	   se reseteaza la fiecare joc nou.
+
+	- Aplicatia e realizata pe baza de ferestre.
+	- Am utilizat combinarea RGB-ului pentru generarea de noi culori.
+	- Navigarea in meniu este posibila prin functiile (select_menu) si (update_menu).
+Rezultatul functiei (select_menu) poate fi 1, 2 sau 3, corespunzator optiunii
+NEW GAME, RESUME, respectiv QUIT.
+	- Principala functie a programului este (play_game) care apeleaza o serie de
+alte functii pentru prelucrarea si afisarea valorilor.
+	- Scorurile se actualizeaza dupa fiecare mutare.
+	- TIMEOUT implicit = 10 secunde (daca nicio tasta nu e apasata timp de 10 secunde,
+se va muta automat).
