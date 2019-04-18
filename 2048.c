@@ -17,21 +17,21 @@ void initialize_color()
 {
 	int i, j;
 	start_color();
-	init_color(39, 900, 0, 0);		  // ROSU APRINS
-	init_color(40, 1000, 1000, 1000); // ALB
+	init_color(39, 900, 0, 0);	// ROSU APRINS
+	init_color(40, 1000, 1000, 1000);// ALB
 	init_color(20, 368, 635, 905);	// ALBASTRU DESCHIS
-	init_color(21, 7, 490, 749);	  // ALBASTRU INCHIS
-	init_color(22, 90, 827, 356);	 // VERDE IRLANDEZ
-	init_color(23, 3, 752, 0);		  // VERDE 2
-	init_color(24, 976, 764, 0);	  // GALBEN
-	init_color(25, 917, 447, 66);	 // PORTOCALIU
+	init_color(21, 7, 490, 749);	// ALBASTRU INCHIS
+	init_color(22, 90, 827, 356);	// VERDE IRLANDEZ
+	init_color(23, 3, 752, 0);	// VERDE 2
+	init_color(24, 976, 764, 0);	// GALBEN
+	init_color(25, 917, 447, 66);	// PORTOCALIU
 	init_color(26, 721, 101, 160);	// ROSU
-	init_color(27, 619, 0, 364);	  // VISINIU
+	init_color(27, 619, 0, 364);	// VISINIU
 	init_color(28, 341, 250, 486);	// MOV
 	init_color(29, 239, 160, 388);	// INDIGO
-	init_color(30, 450, 0, 0);		  // ROSU INCHIS
-	init_color(31, 0, 1000, 0);		  // VERDE PUR
-	init_color(32, 1000, 0, 0);		  // ROSU PUR
+	init_color(30, 450, 0, 0);	// ROSU INCHIS
+	init_color(31, 0, 1000, 0);	// VERDE PUR
+	init_color(32, 1000, 0, 0);	// ROSU PUR
 
 	init_pair(1, COLOR_GREEN, 0);
 	init_pair(2, COLOR_YELLOW, 0);
@@ -49,7 +49,7 @@ void initialize_color()
 		init_pair(i, 40, j);
 }
 
-//afiseaza "2048" ca titlu
+// afiseaza "2048" ca titlu
 void name_game()
 {
 	int i;
@@ -168,7 +168,7 @@ int select_menu(int i, char *game_menu[])
 {
 	int c;
 	/* retiparire a optiunilor
-	cu selectare implicita pe NEW GAME*/
+	cu selectare implicita pe NEW GAME */
 	i = 1;
 	mvwprintw(win_menu, 1, 2, "%s", game_menu[0]);
 	mvwprintw(win_menu, 2, 2, "%s", game_menu[1]);
@@ -214,7 +214,7 @@ int select_menu(int i, char *game_menu[])
 	}
 }
 
-//afiseaza mesaj de eroare pentru optiunea RESUME
+// afiseaza mesaj de eroare pentru optiunea RESUME
 void write_resume()
 {
 	wattron(win_menu, COLOR_PAIR(8));
@@ -224,7 +224,7 @@ void write_resume()
 	wrefresh(win_menu);
 }
 
-//afiseaza mesajul "SUCCES!" la inceperea unui nou joc
+// afiseaza mesajul "SUCCES!" la inceperea unui nou joc
 void write_newgame()
 {
 	wattron(win_menu, COLOR_PAIR(6));
@@ -333,7 +333,7 @@ void create_board(int row, int col)
 	wrefresh(win_board);
 }
 
-//stabileste culoarea celulei din tabla de joc
+// stabileste culoarea celulei din tabla de joc
 int color_fill(int nri, int nrj, int a[][5])
 {
 	switch (a[nri][nrj])
@@ -367,7 +367,7 @@ int color_fill(int nri, int nrj, int a[][5])
 	}
 }
 
-/*returneaza modul de tiparire al valorilor in celula
+/* returneaza modul de tiparire al valorilor in celula
 (asezare in patratel) */
 int retype_matrix(int nri, int nrj, int a[][5])
 {
@@ -379,7 +379,7 @@ int retype_matrix(int nri, int nrj, int a[][5])
 		return 1;
 }
 
-//colorare tabla de joc
+// colorare tabla de joc
 void fill_matrix(int a[][5])
 {
 	int i, j, n, k, nri = 0, nrj = 0, col, type;
@@ -417,7 +417,7 @@ void fill_matrix(int a[][5])
 	wrefresh(win_matrix);
 }
 
-//creare tabla de joc
+// creare tabla de joc
 void create_matrix()
 {
 	win_matrix = newwin(17, 31, 13, 48);
@@ -425,8 +425,8 @@ void create_matrix()
 	wrefresh(win_matrix);
 }
 
-/*genereaza pozitiile primelor doua valori de pe tabla
-astfel incat acestea sa nu coincida*/
+/* genereaza pozitiile primelor doua valori de pe tabla
+astfel incat acestea sa nu coincida */
 void random_position(int poz[])
 {
 	int random_number, nr;
@@ -465,7 +465,7 @@ void random_numbers(int n[], int num)
 void initialize_matrix(int n[], int poz[], int a[][5])
 {
 	int i, j;
-	//initializare centru matrice cu unu
+	// initializare centru matrice cu unu
 	for (i = 1; i <= 4; i++)
 		for (j = 1; j <= 4; j++)
 			a[i][j] = 1;
@@ -473,7 +473,7 @@ void initialize_matrix(int n[], int poz[], int a[][5])
 	random_numbers(n, 2);
 	random_position(poz);
 
-	//pune numerele generate pe pozitiile corespunzatoare in matrice
+	// pune numerele generate pe pozitiile corespunzatoare in matrice
 	a[poz[0]][poz[1]] = n[0];
 	a[poz[2]][poz[3]] = n[1];
 }
@@ -853,6 +853,7 @@ int play_game(int choose, char *game_menu[], int a[][5], int poz[], int n[],
 		ok = 0;
 		undo = 0;
 		var_null = var_null2 = 0;
+
 		/* verifica daca exista mutari disponibile,
 		deci daca jocul s-a incheiat sau nu : */
 		// verificare mutare disponibila STANGA
@@ -862,6 +863,7 @@ int play_game(int choose, char *game_menu[], int a[][5], int poz[], int n[],
 		move_left(d);
 		decision_add_number(n, poz, d, a);
 		ok_left = decision_lose_game(a, d);
+
 		// verificare mutare disponibila DREAPTA
 		copy_matrix(a, d);
 		move_right(d);
@@ -869,6 +871,7 @@ int play_game(int choose, char *game_menu[], int a[][5], int poz[], int n[],
 		move_right(d);
 		decision_add_number(n, poz, d, a);
 		ok_right = decision_lose_game(a, d);
+
 		// verificare mutare disponibila SUS
 		copy_matrix(a, d);
 		move_up(d);
@@ -876,6 +879,7 @@ int play_game(int choose, char *game_menu[], int a[][5], int poz[], int n[],
 		move_up(d);
 		decision_add_number(n, poz, d, a);
 		ok_up = decision_lose_game(a, d);
+
 		// verificare mutare disponibila JOS
 		copy_matrix(a, d);
 		move_down(d);
@@ -883,6 +887,7 @@ int play_game(int choose, char *game_menu[], int a[][5], int poz[], int n[],
 		move_down(d);
 		decision_add_number(n, poz, d, a);
 		ok_down = decision_lose_game(a, d);
+
 		// verificare joc pierdut
 		if ((ok_left == 1) && (ok_right == 1) && (ok_up == 1) && (ok_down == 1))
 		{
@@ -890,6 +895,7 @@ int play_game(int choose, char *game_menu[], int a[][5], int poz[], int n[],
 			delwin(win_bonus);
 			write_lose_game();
 		}
+
 		// verificare joc castigat
 		for (i = 1; i <= 4; i++)
 			for (j = 1; j <= 4; j++)
@@ -899,6 +905,7 @@ int play_game(int choose, char *game_menu[], int a[][5], int poz[], int n[],
 					delwin(win_bonus);
 					write_win_game();
 				}
+
 		// revenire la meniu daca jocul s-a incheiat
 		if (game_over == 1)
 		{
@@ -1043,7 +1050,7 @@ int play_game(int choose, char *game_menu[], int a[][5], int poz[], int n[],
 			for (i = 0; i <= 3; i++)
 				if ((maxim < nr[i]) && (move_verif[i] != -1))
 				{
-					maxim = nr[i]; //nr maxim de celule libere
+					maxim = nr[i]; // nr maxim de celule libere
 					poz_maxim = i;
 				}
 
@@ -1099,7 +1106,7 @@ int play_game(int choose, char *game_menu[], int a[][5], int poz[], int n[],
 		if (undo == 0)
 			*total_score = *total_score + *score - initial_score;
 
-		//afisare scoruri
+		// afisare scoruri
 		wattron(win_board, COLOR_PAIR(2) | A_BOLD);
 		mvwprintw(win_board, 1, 10, "%ld", *score);
 		mvwprintw(win_board, 2, 15, "%ld", *total_score);
@@ -1126,9 +1133,9 @@ int main()
 	keypad(stdscr, TRUE);
 	initialize_color();
 
-	name_game();							 //afiseaza "2048"
-	enter_name();							 //citire nume jucator
-	create_menu(game_menu);					 //afisare meniu
+	name_game();		//afiseaza "2048"
+	enter_name();		//citire nume jucator
+	create_menu(game_menu);	//afisare meniu
 	choose = select_menu(choose, game_menu); //selectare optiuni din meniu
 
 	while (FOREVER)
@@ -1149,7 +1156,7 @@ int main()
 			else
 				break;
 		}
-		if (choose == 2) //RESUME
+		if (choose == 2) // RESUME
 		{
 			if (ok == 0)
 			{
@@ -1166,13 +1173,13 @@ int main()
 				choose = play_game(choose, game_menu, a, poz, n, &score, &total_score, &bonus_score);
 			}
 		}
-		if (choose == 1) //NEW GAME
+		if (choose == 1) // NEW GAME
 		{
 			ok = 1;
 			delwin(win_end_game);
 			write_newgame();
 			delete_resume();
-			napms(900); //DELAY
+			napms(900); // DELAY
 			delete_newgame();
 			new_game(n, poz, a, &score, &bonus_score);
 			choose = play_game(choose, game_menu, a, poz, n, &score, &total_score, &bonus_score);
